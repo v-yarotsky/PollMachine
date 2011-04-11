@@ -1,0 +1,7 @@
+%h1 Polls#index
+- @polls.each do |poll|
+  .div[poll]
+    %h3= poll.title
+    = link_to "Take part", poll_path(poll.id)
+
+= link_to "Create a poll", new_poll_path

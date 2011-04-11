@@ -1,0 +1,30 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: poll_machine_development
+  username: root
+  password: 
+  host: 127.0.0.1
+  port: 3306
+
+test: &test
+  adapter: mysql2
+  encoding: utf8
+  database: poll_machine_test
+  username: root
+  password: 
+  host: 127.0.0.1
+  port: 3306
+
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: poll_machine_production
+  username: root
+  password: 
+  host: 127.0.0.1
+  port: 3306
+  
+
+cucumber:
+  <<: *test
