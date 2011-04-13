@@ -2,8 +2,10 @@ PollMachine::Application.routes.draw do
   
   root :to => "polls#index"
   
-  resources :polls, :only => [:index, :show, :new] do
-    resources :questions, :only => :index
+  resources :polls, :only => [:index, :show, :new, :update] do
+    member do
+      get :show_questions
+    end
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

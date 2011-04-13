@@ -13,4 +13,12 @@ describe "polls/index.html.haml" do
     render
     rendered.should have_selector("a", :href => new_poll_path)
   end
+  
+  it "should display error messages if any" do
+    assign(:polls, [])
+    msg = "Some error"
+    flash[:error] = msg
+    render
+    rendered.should contain(msg)
+  end
 end

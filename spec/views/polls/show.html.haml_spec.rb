@@ -24,7 +24,7 @@ describe "polls/show.html.haml" do
   it "should display button to proceed to the questions" do
     assign_poll
     render
-    rendered.should have_selector("a", :class => "button", :id => "proceed_to_questions", :href => poll_questions_path(@poll.id))
+    rendered.should have_selector("a", :class => "button", :id => "proceed_to_questions", :href => show_questions_poll_path(@poll))
   end
   
   private

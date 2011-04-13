@@ -3,7 +3,9 @@ Factory.define :poll do |f|
 end
 
 Factory.define :poll_with_questions, :parent => :poll do |f|
-  f.questions do |poll|
-    (1..3).map { poll.questions.build }
-  end
+  f.questions { |questions| (1..3).map { |i| questions.association(:question, :text => "Question ##{i}") } }
+end
+
+Factory.define :poll_with_questions_and_answers, :parent => :poll do |f|
+  f.questions { |questions| (1..3).map { |i| questions.association(:question_with_predefined_answers, :text => "Question ##{i}") } }
 end

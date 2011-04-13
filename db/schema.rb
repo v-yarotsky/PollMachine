@@ -10,13 +10,31 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110411203116) do
+ActiveRecord::Schema.define(:version => 20110412220454) do
+
+  create_table "answers", :force => true do |t|
+    t.string   "uuid",                 :limit => 36
+    t.integer  "question_id"
+    t.integer  "predefined_answer_id"
+    t.text     "custom_answer_text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "answers", ["id", "question_id"], :name => "index_answers_on_id_and_question_id"
 
   create_table "polls", :force => true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+  end
+
+  create_table "predefined_answers", :force => true do |t|
+    t.integer  "question_id"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "questions", :force => true do |t|

@@ -1,0 +1,10 @@
+= simple_form_for @poll do |f|
+  - @poll.questions.includes(:predefined_answers).each_with_index do |question, i|
+    %div.question{ :id => "question_#{i.next}"}
+      %h3= question.text
+      = f.simple_fields_for :questions, question do |question_f|
+        %ol.answers
+          = question_f.collection_radio :answers_predefined_answer_ids, question.predefined_answers, :id, :text, :item_wrapper_tag => "li class='answer'"
+  = f.submit "Submit"
+
+  

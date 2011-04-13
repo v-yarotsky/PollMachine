@@ -3,4 +3,4 @@
   - if @poll.description?
     %p.description= @poll.description
   %h3= pluralize(@poll.questions.size, "question")
-  = link_to "Proceed", poll_questions_path(@poll), :class => "button", :id => "proceed_to_questions"
+  = link_to "Proceed", show_questions_poll_path(@poll), :class => "button", :id => "proceed_to_questions"

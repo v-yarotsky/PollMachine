@@ -7,6 +7,7 @@ gem 'jquery-rails'
 gem 'simple_form'
 gem "haml-rails"
 gem 'decent_exposure'
+gem 'uuidtools'
 
 group :test do
   gem 'rspec-rails'

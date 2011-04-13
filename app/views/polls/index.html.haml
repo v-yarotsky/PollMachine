@@ -1,4 +1,5 @@
 %h1 Polls#index
+%p.errors= flash[:error]
 - @polls.each do |poll|
   .div[poll]
     %h3= poll.title

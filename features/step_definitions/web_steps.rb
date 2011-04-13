@@ -209,3 +209,7 @@ end
 Then /^show me the page$/ do
   save_and_open_page
 end
+
+When /^I reload the page$/ do
+  visit [ current_path, page.driver.last_request.env['QUERY_STRING'] ].reject(&:blank?).join('?')
+end

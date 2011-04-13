@@ -14,8 +14,11 @@ module NavigationHelpers
     when /the poll creation page/
       new_poll_path
     
-    when /add questions page/
+    when /the main page of the poll/
+      poll_path(@poll)
       
+    when /the questions page/
+      show_questions_poll_path(@poll)
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:
