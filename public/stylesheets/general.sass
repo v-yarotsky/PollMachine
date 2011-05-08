@@ -1,0 +1,30 @@
+@mixin rounded
+  $radius: 10px
+  border-radius: $radius
+  -moz-border-radius: $radius
+  -webkit-border-radius: $radius
+
+*
+  padding: 0
+  margin: 0
+  
+body
+  padding: 10px
+  
+#user_nav
+  text-align: right
+  
+#messages
+  width: 60%
+  text-align: center
+  margin: 0 auto
+  & div
+    padding: 2px 10px
+    @include rounded
+  #notice:not(:empty)
+    border: 1px solid #00CC33
+    background-color: #99FF99
+  #alert:not(:empty)
+    border: 1px solid #FF3333 
+    background-color: #FFAAAA
+  

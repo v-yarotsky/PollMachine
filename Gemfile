@@ -8,6 +8,7 @@ gem 'simple_form'
 gem "haml-rails"
 gem 'decent_exposure'
 gem 'uuidtools'
+gem 'devise'
 
 group :test do
   gem 'rspec-rails'

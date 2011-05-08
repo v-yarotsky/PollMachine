@@ -23,7 +23,6 @@ Feature: Take part in the poll
     And I press "Submit"
     Then I should see "Thank you"
   
-  @wip
   Scenario: do not allow to participate second again
     Given I am on the main page of the poll
     When I follow "Proceed"

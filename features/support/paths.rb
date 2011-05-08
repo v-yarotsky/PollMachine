@@ -19,6 +19,9 @@ module NavigationHelpers
       
     when /the questions page/
       show_questions_poll_path(@poll)
+    
+    when /add questions page/
+      add_questions_poll_path()
 
     # Add more mappings here.
     # Here is an example that pulls values out of the Regexp:

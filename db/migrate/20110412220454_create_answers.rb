@@ -8,11 +8,15 @@ class CreateAnswers < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :answers, [:id, :question_id]
+    add_index :answers, :question_id
+    add_index :answers, :predefined_answer_id
+    add_index :answers, :uuid
   end
 
   def self.down
-    remove_index :answers, :column => [:id, :question_id]
+    remove_index :answers, :column => :question_id
+    remove_index :answers, :column => :predefined_answer_id
+    remove_index :answers, :column => :uuid
     drop_table :answers
   end
 end

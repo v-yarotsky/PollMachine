@@ -17,4 +17,8 @@ class UserSession
     Thread.current[:user_session] = value
   end
   
+  def destroy
+    @session[:uuid] = nil
+  end
+  
 end

@@ -1,10 +1,13 @@
 PollMachine::Application.routes.draw do
   
+  devise_for :users
+
   root :to => "polls#index"
   
-  resources :polls, :only => [:index, :show, :new, :update] do
+  resources :polls, :only => [:index, :show, :new, :update, :create] do
     member do
       get :show_questions
+      get :add_questions
     end
   end
   # The priority is based upon order of creation:

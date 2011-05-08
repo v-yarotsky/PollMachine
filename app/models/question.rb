@@ -2,6 +2,9 @@ class Question < ActiveRecord::Base
   belongs_to :poll
   has_many :predefined_answers, :dependent => :destroy
   has_many :answers, :dependent => :destroy
+
+  scope :with_answers, includes(:answers)
+  scope :with_predefined_answers, includes(:predefined_answers)
   
   def answers_predefined_answer_ids
     #Answer.find_all_by_uuid_and_question_id(UserSession.current.uuid, self).map(&:predefined_answer_id)
