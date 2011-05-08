@@ -23,3 +23,22 @@ body {
   #messages #alert:not(:empty) {
     border: 1px solid #ff3333;
     background-color: #ffaaaa; }
+
+form label {
+  width: 100px;
+  float: left;
+  clear: left;
+  vertical-align: top; }
+  form label:after {
+    content: ":"; }
+
+#poll_questions .predefined_answer {
+  padding-left: 20px; }
+#poll_questions div {
+  float: left;
+  clear: left; }
+
+form#poll .answers {
+  padding-left: 40px; }
+  form#poll .answers .answer label {
+    float: none; }

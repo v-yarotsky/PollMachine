@@ -9,6 +9,7 @@ gem "haml-rails"
 gem 'decent_exposure'
 gem 'uuidtools'
 gem 'devise'
+gem 'nested_form'
 
 group :test do
   gem 'rspec-rails'

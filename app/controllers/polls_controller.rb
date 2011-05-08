@@ -1,6 +1,5 @@
 class PollsController < ApplicationController
   before_filter :ensure_user_did_not_participate, :only => [:show, :update]
-  #before_filter :ensure_poll_found, :except => [:index, :new, :create]
   before_filter :authenticate_user!, :only => [:new, :create]
   
   def new
@@ -12,7 +11,8 @@ class PollsController < ApplicationController
     if poll.save
       redirect_to add_questions_poll_path(poll)
     else
-      render :action => :new, :alert => "Invalid data supplied"
+      flash[:alert] = "Invalid data supplied"
+      render :action => :new
     end
   end
   
@@ -23,14 +23,19 @@ class PollsController < ApplicationController
   def show
   end
   
+  def show_questions
+  end
+  
   def add_questions
+    poll.questions.build if poll.questions.blank?
   end
   
   def update
     if poll.update_attributes(params[:poll])
       render "thank_you"
     else
-      render :action => :show_questions, :alert => "Submitted data is incorrect"
+      flash[:alert] = "Submitted data is incorrect"
+      render :action => :show_questions
     end
   end
   

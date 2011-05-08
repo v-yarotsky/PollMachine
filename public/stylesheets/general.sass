@@ -28,3 +28,25 @@ body
     border: 1px solid #FF3333 
     background-color: #FFAAAA
   
+form
+  label
+    width: 100px
+    float: left
+    clear: left
+    vertical-align: top
+    &:after
+      content: ':'
+      
+#poll_questions
+  .predefined_answer
+    padding-left: 20px
+  div
+    float: left
+    clear: left
+    
+form#poll
+  .answers
+    padding-left: 40px
+    .answer
+      label
+        float: none

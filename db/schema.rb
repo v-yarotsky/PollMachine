@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110508152307) do
+ActiveRecord::Schema.define(:version => 20110508202533) do
 
   create_table "answers", :force => true do |t|
     t.string   "uuid",                 :limit => 36
@@ -30,7 +30,10 @@ ActiveRecord::Schema.define(:version => 20110508152307) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "description"
+    t.integer  "user_id"
   end
+
+  add_index "polls", ["user_id"], :name => "index_polls_on_user_id"
 
   create_table "predefined_answers", :force => true do |t|
     t.integer  "question_id"
