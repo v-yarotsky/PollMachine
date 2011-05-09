@@ -31,14 +31,8 @@ form label {
   vertical-align: top; }
   form label:after {
     content: ":"; }
+form .remove_nested_fields, form .add_nested_fields {
+  vertical-align: top; }
 
-#poll_questions .predefined_answer {
+#poll_questions .answer_fields {
   padding-left: 20px; }
-#poll_questions div {
-  float: left;
-  clear: left; }
-
-form#poll .answers {
-  padding-left: 40px; }
-  form#poll .answers .answer label {
-    float: none; }

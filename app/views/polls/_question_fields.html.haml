@@ -1,10 +1,9 @@
 %div[f.object]
-  .input.string
+  .question_fields
     = f.label :text, "Question text"
     = f.text_area :text, :rows => 3
-  = f.link_to_remove "Remove question"
+    = f.link_to_remove "Remove question"
   = f.fields_for :predefined_answers, PredefinedAnswer.new do |a|
     = render "predefined_answer_fields", :f => a
-  %div  
-    = f.link_to_add "Add answer", :predefined_answers
+  = f.link_to_add "Add answer", :predefined_answers
   

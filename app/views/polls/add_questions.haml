@@ -1,6 +1,5 @@
 = nested_form_for poll, :html => { :id => "poll_questions" } do |f|
   = f.fields_for :questions do |q|
     = render "question_fields", :f => q
-  %div
-    = f.link_to_add "Add question", :questions
-    = f.submit
+  = f.link_to_add "Add question", :questions
+  = f.submit
