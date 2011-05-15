@@ -2,7 +2,10 @@
 - @polls.each do |poll|
   .div[poll]
     %h3= poll.title
+    %p= poll.description.truncate(100)
     = link_to "Take part", poll_path(poll.id)
-    = link_to "Remove", poll_path(poll.id), :method => :delete if poll.owned_by?(current_user)
+    - if poll.owned_by?(current_user)
+      = link_to "View results", results_poll_path(poll.id)
+      = link_to "Remove", poll_path(poll.id), :method => :delete
 
 = link_to "Create a poll", new_poll_path

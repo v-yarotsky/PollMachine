@@ -6,6 +6,9 @@ class Question < ActiveRecord::Base
   scope :with_answers, includes(:answers)
   scope :with_predefined_answers, includes(:predefined_answers)
   
+  validates_presence_of :text
+  validates_presence_of :predefined_answers
+  
   accepts_nested_attributes_for :predefined_answers, :reject_if => :all_blank
   
   attr_accessor :custom_answer

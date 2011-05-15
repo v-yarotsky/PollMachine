@@ -1,0 +1,21 @@
+- poll.questions.each do |question|
+  %div[question]
+    %h2= question.text
+    .tabular
+      %table
+        %tr
+          %thead
+            %th= "Answer"
+            %th= "Count"
+            %th= "Percent"
+          %tbody
+            - question.predefined_answers.each do |predefined_answer|
+              %tr
+                %td
+                  %span{ :title => predefined_answer.text }= predefined_answer.text.truncate(25)
+                - count = question.answers.where(:predefined_answer_id => predefined_answer.id).count
+                %td= count
+                %td= number_to_percentage(count.try(:zero?) ? 0 : question.answers.count / count)
+    .graph
+    
+= link_to "Back to polls list", polls_path

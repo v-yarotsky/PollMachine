@@ -35,7 +35,7 @@ class PollsController < ApplicationController
       redirect_to polls_path, :notice => "Thank you"
     else
       flash[:alert] = "Submitted data is incorrect"
-      render :action => :show_questions
+      render :action => :add_questions
     end
   end
   

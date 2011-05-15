@@ -8,6 +8,7 @@ PollMachine::Application.routes.draw do
     member do
       get :show_questions
       get :add_questions
+      get :results
     end
   end
   # The priority is based upon order of creation:

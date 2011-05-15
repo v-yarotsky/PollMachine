@@ -9,11 +9,6 @@ $(function() {
 	$(".button").click(handleNavClick);
 	updateNavLinks();
 	$("#poll_submit").hide();
-	
-	$("input[type='radio']").live('click', function(event) {
-		var $textfield = $(this).closest(".question").find("input[type='text']");
-		$textfield.attr('disabled', $(this).is(".custom") ? "" : "disabled");
-	});
 });
 
 var handleNavClick = function() {

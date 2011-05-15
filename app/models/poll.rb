@@ -5,12 +5,13 @@ class Poll < ActiveRecord::Base
   accepts_nested_attributes_for :questions, :allow_destroy => true
   
   validates_presence_of :title
+  validates_presence_of :questions, :on => :update
   
   def user_took_part_already?
     #answers.present? && questions.includes(:answers).select(&:answered_by_current_user?).size == questions.size
   end
   
   def owned_by?(user)
-    self.user_id == user.id
+    self.user_id == user.try(:id)
   end
 end

@@ -1,6 +1,6 @@
 %li[f.object]
   .answer_fields
-    = f.label :text, "Answer"
     = f.text_area :text, :rows => 1
+    %span.errors= f.object.errors[:text]
     = f.hidden_field :position, :value => 0
     = f.link_to_remove "Remove answer"

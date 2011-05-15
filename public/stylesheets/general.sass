@@ -17,7 +17,7 @@ body
 #messages
   width: 60%
   text-align: center
-  margin: 0 auto
+  margin: 0 auto 20px
   & div
     padding: 2px 10px
     @include rounded
@@ -32,7 +32,7 @@ form
   line-height: 1.5em
   font-size: 1em
   label
-    width: 100px
+    width: 120px
     vertical-align: top
     float: left
     clear: left
@@ -48,6 +48,30 @@ form
     padding-left: 35px
   .collection_check_boxes input[type='checkbox']
     margin-right: 4px
+  span.errors:not(:empty)
+    color: red
+    font-size: 1em
+    font-weight: normal
+  .field_with_errors
+    display: inline
+    input, textarea
+      border: 1px solid red
+  .remove_nested_fields
+    background-image: url('/images/remove.png')
+    text-indent: -9999px
+    display: inline-block
+    width: 16px
+    height: 16px
+    background-repeat: none
+  .question
+    border: 1px solid gray
+    @include rounded
+    padding: 10px
+    .predefined_answers
+      padding-top: 10px
+      border-style: solid
+      border-color: gray
+      border-width: 1px 0
 
 li.question
   margin-bottom: 20px
@@ -67,5 +91,3 @@ li.question
     padding: 2px
     margin-right: 2px
     float: left
-    
-.question

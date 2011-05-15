@@ -3,15 +3,16 @@
     %p
       = f.label :text, "Question"
       = f.text_area :text, :rows => 1
+      %span.errors= f.object.errors[:text]
     %p
       = f.label :multiple_answers, "Many answers"
       = f.check_box :multiple_answers
-    %p
-      = f.label :allow_custom_answer, "Custom answer"
-      = f.check_box :allow_custom_answer
     = f.hidden_field :position, :value => 0
   = f.link_to_remove "Remove question"
   %ol.predefined_answers
+    %h3
+      = "Answers"
+      %span.errors= f.object.errors[:predefined_answers]
     = f.fields_for :predefined_answers
     = f.link_to_add "Add answer", :predefined_answers
   

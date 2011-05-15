@@ -4,24 +4,5 @@
     %ol.answers
       - if question_f.object.multiple_answers?
         = question_f.collection_check_boxes :answers_predefined_answer_ids, question.predefined_answers, :id, :text, :item_wrapper_tag => "li class='answer'"
-        - if question_f.object.allow_custom_answer?
-          %p
-            = question_f.label :custom_answer
-            = question_f.text_field :custom_answer
       - else
-        - if question_f.object.predefined_answers.size == 0 && question_f.object.allow_custom_answer?
-          %p
-            = question_f.label :custom_answer
-            = question_f.text_field :custom_answer
-        - else
-          - if question_f.object.allow_custom_answer?
-            - question_f.object.predefined_answers.each do |a|
-              %li.answer
-                = question_f.radio_button :answers_predefined_answer_ids, a.id, :value => false
-                = question_f.label :answers_predefined_answer_ids, a.text, :class => "collection_radio"
-            %li.answer.custom
-              = question_f.radio_button :answers_predefined_answer_ids, nil, :value => false, :class => "custom"
-              = question_f.label :answers_predefined_answer_ids, "Custom", :class => "collection_radio"
-              = question_f.text_field :custom_answer
-          - else
-            = question_f.collection_radio :answers_predefined_answer_ids, question.predefined_answers, :id, :text, :item_wrapper_tag => "li class='answer'"        
+        = question_f.collection_radio :answers_predefined_answer_ids, question.predefined_answers, :id, :text, :item_wrapper_tag => "li class='answer'"        
