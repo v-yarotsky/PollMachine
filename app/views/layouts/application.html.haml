@@ -3,7 +3,9 @@
   %head>
     %title Poll Machine
     = stylesheet_link_tag :all, "general"
+    = yield :stylesheets
     = javascript_include_tag :defaults, "nested_form"
+    = yield :javascripts
     = csrf_meta_tag
   %body
     #user_nav

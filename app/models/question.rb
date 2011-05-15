@@ -8,6 +8,8 @@ class Question < ActiveRecord::Base
   
   accepts_nested_attributes_for :predefined_answers, :reject_if => :all_blank
   
+  attr_accessor :custom_answer
+  
   def answers_predefined_answer_ids
     #Answer.find_all_by_uuid_and_question_id(UserSession.current.uuid, self).map(&:predefined_answer_id)
   end
@@ -16,6 +18,10 @@ class Question < ActiveRecord::Base
     predefined_answer_ids.each do |predefined_answer_id|
       answers.create!(:predefined_answer_id => predefined_answer_id)
     end
+  end
+  
+  def custom_answer=(answer)
+    answers.create!(:custom_answer_text => answer) if answer.present?
   end
   
   def answered_by_current_user?

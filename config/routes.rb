@@ -4,7 +4,7 @@ PollMachine::Application.routes.draw do
 
   root :to => "polls#index"
   
-  resources :polls, :only => [:index, :show, :new, :update, :create] do
+  resources :polls, :except => :edit do
     member do
       get :show_questions
       get :add_questions

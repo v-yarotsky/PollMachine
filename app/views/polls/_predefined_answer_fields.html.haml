@@ -1,5 +1,6 @@
-%div[f.object]
+%li[f.object]
   .answer_fields
-    = f.label :text, "Answer text"
-    = f.text_area :text, :rows => 2
+    = f.label :text, "Answer"
+    = f.text_area :text, :rows => 1
+    = f.hidden_field :position, :value => 0
     = f.link_to_remove "Remove answer"

@@ -9,4 +9,8 @@ class Poll < ActiveRecord::Base
   def user_took_part_already?
     #answers.present? && questions.includes(:answers).select(&:answered_by_current_user?).size == questions.size
   end
+  
+  def owned_by?(user)
+    self.user_id == user.id
+  end
 end

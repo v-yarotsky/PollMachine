@@ -5,8 +5,8 @@
   -webkit-border-radius: $radius
 
 *
-  padding: 0
   margin: 0
+  padding: 0
   
 body
   padding: 10px
@@ -29,16 +29,43 @@ body
     background-color: #FFAAAA
   
 form
+  line-height: 1.5em
+  font-size: 1em
   label
     width: 100px
+    vertical-align: top
     float: left
     clear: left
-    vertical-align: top
-    &:after
+    &:not(.collection_radio):not(.collection_check_boxes):after
       content: ':'
+      vertical-align: top
+    &.collection_radio, &.collection_check_boxes
+      float: none
+      clear: none
   .remove_nested_fields, .add_nested_fields
     vertical-align: top
+  ol
+    padding-left: 35px
+  .collection_check_boxes input[type='checkbox']
+    margin-right: 4px
 
+li.question
+  margin-bottom: 20px
+  .question_fields
+    display: inline-block
+    
 #poll_questions
   .answer_fields
     padding-left: 20px
+    
+.nav_buttons
+  float: left
+  clear: both
+  margin-top: 10px
+  .button
+    border: 1px solid black
+    padding: 2px
+    margin-right: 2px
+    float: left
+    
+.question

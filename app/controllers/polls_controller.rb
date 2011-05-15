@@ -32,11 +32,16 @@ class PollsController < ApplicationController
   
   def update
     if poll.update_attributes(params[:poll])
-      render "thank_you"
+      redirect_to polls_path, :notice => "Thank you"
     else
       flash[:alert] = "Submitted data is incorrect"
       render :action => :show_questions
     end
+  end
+  
+  def destroy
+    poll.try(:destroy)
+    redirect_to :action => :index
   end
   
   private

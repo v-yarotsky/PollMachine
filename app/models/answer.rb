@@ -4,4 +4,9 @@ class Answer < ActiveRecord::Base
   def before_create()
     self.uuid = UserSession.current.uuid
   end
+  
+  def answered?
+    predefined_answer_id.present? || custom_answer_text.present?
+  end
+  
 end

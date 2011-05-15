@@ -6,6 +6,6 @@ class AddUserIdToPolls < ActiveRecord::Migration
 
   def self.down
     remove_column :polls, :user_id
-    remove_index :polls, :columns => :user_id
+    remove_index :polls, :user_id
   end
 end

@@ -3,5 +3,6 @@
   .div[poll]
     %h3= poll.title
     = link_to "Take part", poll_path(poll.id)
+    = link_to "Remove", poll_path(poll.id), :method => :delete if poll.owned_by?(current_user)
 
 = link_to "Create a poll", new_poll_path
