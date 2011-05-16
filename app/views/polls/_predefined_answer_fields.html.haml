@@ -2,5 +2,7 @@
   .answer_fields
     = f.text_area :text, :rows => 1
     %span.errors= f.object.errors[:text]
-    = f.hidden_field :position, :value => 0
+    = f.hidden_field :position, :class => "position"
+    = link_to_move_up
+    = link_to_move_down
     = f.link_to_remove "Remove answer"

@@ -4,6 +4,13 @@
   -moz-border-radius: $radius
   -webkit-border-radius: $radius
 
+@mixin button_link
+  text-indent: -9999px
+  display: inline-block
+  width: 16px
+  height: 16px
+  background-repeat: none
+  
 *
   margin: 0
   padding: 0
@@ -57,12 +64,8 @@ form
     input, textarea
       border: 1px solid red
   .remove_nested_fields
+    @include button_link
     background-image: url('/images/remove.png')
-    text-indent: -9999px
-    display: inline-block
-    width: 16px
-    height: 16px
-    background-repeat: none
   .question
     border: 1px solid gray
     @include rounded
@@ -72,6 +75,20 @@ form
       border-style: solid
       border-color: gray
       border-width: 1px 0
+
+.button
+  @include button_link
+  &.move_up
+    background-image: url('/images/move up.png')
+  &.move_down
+    background-image: url('/images/move down.png')
+  &.next_question
+    background-image: url('/images/move right.png')
+  &.prev_question
+    background-image: url('/images/move left.png')
+  &.finish
+    background-image: url('/images/finish.png')
+    
 
 li.question
   margin-bottom: 20px
@@ -86,8 +103,3 @@ li.question
   float: left
   clear: both
   margin-top: 10px
-  .button
-    border: 1px solid black
-    padding: 2px
-    margin-right: 2px
-    float: left

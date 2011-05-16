@@ -14,4 +14,8 @@ class Poll < ActiveRecord::Base
   def owned_by?(user)
     self.user_id == user.try(:id)
   end
+  
+  def answers_count
+    answers.map(&:uuid).uniq.count
+  end
 end

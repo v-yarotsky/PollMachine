@@ -6,6 +6,8 @@ class Question < ActiveRecord::Base
   scope :with_answers, includes(:answers)
   scope :with_predefined_answers, includes(:predefined_answers)
   
+  default_scope order(:position)
+  
   validates_presence_of :text
   validates_presence_of :predefined_answers
   
@@ -30,5 +32,9 @@ class Question < ActiveRecord::Base
   def answered_by_current_user?
     uuid = UserSession.current.uuid
     answers.select { |a| a.uuid == uuid }.any?
+  end
+  
+  def answers_count
+    answers.map(&:uuid).uniq.count
   end
 end

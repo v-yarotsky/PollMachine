@@ -7,7 +7,9 @@
     %p
       = f.label :multiple_answers, "Many answers"
       = f.check_box :multiple_answers
-    = f.hidden_field :position, :value => 0
+    = f.hidden_field :position, :class => "position", "data-movable" => "question"
+  = link_to_move_up
+  = link_to_move_down
   = f.link_to_remove "Remove question"
   %ol.predefined_answers
     %h3

@@ -1,3 +1,8 @@
+%h1= poll.title
+- if poll.description?
+  %p.description= poll.description
+%p
+  = "Total answers: " + poll.answers_count.to_s
 - poll.questions.each do |question|
   %div[question]
     %h2= question.text
@@ -13,9 +18,8 @@
               %tr
                 %td
                   %span{ :title => predefined_answer.text }= predefined_answer.text.truncate(25)
-                - count = question.answers.where(:predefined_answer_id => predefined_answer.id).count
-                %td= count
-                %td= number_to_percentage(count.try(:zero?) ? 0 : question.answers.count / count)
+                %td= predefined_answer.times_selected
+                %td= number_to_percentage predefined_answer.times_selected_in_percent
     .graph
     
 = link_to "Back to polls list", polls_path

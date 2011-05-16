@@ -1,3 +1,6 @@
+- content_for :javascripts do
+  = javascript_include_tag "create_poll"
+  
 = nested_form_for poll, :html => { :id => "poll_questions" } do |f|
   %h2
     = "Questions"
