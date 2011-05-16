@@ -81,7 +81,7 @@ form {
     background-image: url("/images/move up.png"); }
   .button.move_down {
     background-image: url("/images/move down.png"); }
-  .button.next_question {
+  .button.next_question, .button.proceed {
     background-image: url("/images/move right.png"); }
   .button.prev_question {
     background-image: url("/images/move left.png"); }
