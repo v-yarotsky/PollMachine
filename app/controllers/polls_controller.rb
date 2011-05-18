@@ -1,5 +1,7 @@
 class PollsController < ApplicationController
-  before_filter :ensure_user_did_not_participate, :only => [:show, :update]
+  include PollAwareness
+  
+  before_filter :ensure_user_did_not_participate, :only => [:show]
   before_filter :authenticate_user!, :only => [:new, :create]
   
   def new
@@ -23,44 +25,13 @@ class PollsController < ApplicationController
   def show
   end
   
-  def show_questions
-  end
-  
   def add_questions
     poll.questions.build if poll.questions.blank?
-  end
-  
-  def update
-    begin
-      Answer.transaction do
-        Answer.create!(params[:answers].reject { |a| a[:predefined_answer_id].blank? })
-      end
-      redirect_to polls_path, :notice => "Thank you"
-    rescue
-      flash[:alert] = "Submitted data is incorrect"
-      redirect_to root_path
-    end
   end
   
   def destroy
     poll.try(:destroy)
     redirect_to :action => :index
-  end
-  
-  private
-  
-  def poll
-    @poll ||= Poll.find(params[:id])
-  rescue ActiveRecord::RecordNotFound
-    redirect_to root_path, :alert => "Poll was not found"
-    nil
-  end
-  helper_method :poll
-  
-  def ensure_user_did_not_participate
-    if poll.try(:user_took_part_already?)
-      redirect_to root_path, :alert => "You have already taken part in this poll"
-    end
   end
   
 end

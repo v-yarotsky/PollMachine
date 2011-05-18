@@ -1,10 +1,15 @@
 PollMachine::Application.routes.draw do
   
+  get "answers/new"
+
+  get "answers/create"
+
   devise_for :users
 
   root :to => "polls#index"
   
   resources :polls, :except => :edit do
+    resource :answers, :only => [:new, :create]
     member do
       get :show_questions
       get :add_questions
