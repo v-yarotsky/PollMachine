@@ -18,8 +18,16 @@ class PollsController < ApplicationController
     end
   end
   
+  def update
+    if poll.update_attributes(params[:poll])
+      redirect_to root_path, :notice => "Thank you"
+    else
+      flash[:alert] = "Submitted data incorrect"
+      render :action => :new
+    end
+  end
+  
   def index
-    @polls = Poll.all
   end
   
   def show
@@ -33,5 +41,22 @@ class PollsController < ApplicationController
     poll.try(:destroy)
     redirect_to :action => :index
   end
+  
+  def tag
+    @polls = Poll.tagged_with(params[:id])
+    render :action => :index
+  end
+  
+  private
+  
+  def polls
+    @polls ||= Poll.all
+  end
+  helper_method :polls
+  
+  def tags
+    @tags ||= Poll.tag_counts_on(:tags)
+  end
+  helper_method :tags
   
 end

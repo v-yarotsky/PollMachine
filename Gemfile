@@ -6,10 +6,10 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'simple_form'
 gem "haml-rails"
-gem 'decent_exposure'
 gem 'uuidtools'
 gem 'devise'
 gem 'nested_form'
+gem 'acts-as-taggable-on'
 
 group :test do
   gem 'rspec-rails'

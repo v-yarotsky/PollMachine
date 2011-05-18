@@ -100,3 +100,15 @@ li.question {
   float: left;
   clear: both;
   margin-top: 10px; }
+
+.tags_cloud:not(:empty) {
+  float: right;
+  border: 1px dashed gray; }
+  .tags_cloud:not(:empty) .css1 {
+    font-size: 1em; }
+  .tags_cloud:not(:empty) .css2 {
+    font-size: 1.2em; }
+  .tags_cloud:not(:empty) .css3 {
+    font-size: 1.4em; }
+  .tags_cloud:not(:empty) .css4 {
+    font-size: 1.6em; }

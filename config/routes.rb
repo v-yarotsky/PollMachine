@@ -15,6 +15,9 @@ PollMachine::Application.routes.draw do
       get :add_questions
       get :results
     end
+    collection do
+      get :tag
+    end
   end
   # The priority is based upon order of creation:
   # first created -> highest priority.

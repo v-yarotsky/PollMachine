@@ -1,4 +1,7 @@
 module PollsHelper
+  
+  include ActsAsTaggableOn::TagsHelper
+  
   def link_to_move_up
     link_to "up", nil, :class => "button move_up"
   end
