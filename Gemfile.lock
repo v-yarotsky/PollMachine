@@ -1,5 +1,6 @@
 GEM
   remote: http://rubygems.org/
+  remote: http://gemcutter.org/
   specs:
     abstract (1.0.0)
     actionmailer (3.0.4)
@@ -132,6 +133,7 @@ GEM
       railties (~> 3.0)
       rspec (~> 2.5.0)
     rubyzip (0.9.4)
+    russian (0.2.7)
     selenium-webdriver (0.1.4)
       childprocess (>= 0.1.7)
       ffi (>= 1.0.7)
@@ -175,6 +177,7 @@ DEPENDENCIES
   nested_form
   rails (= 3.0.4)
   rspec-rails
+  russian
   shoulda-matchers
   simple_form
   timecop

@@ -1,0 +1,34 @@
+ru:
+  polls:
+    index:
+      title: "Список проводимых опросов"
+      search: "Поиск"
+      create: "Создать новый опрос (необходима регистрация)"
+      take_part: "Принять участие"
+      view_results: "Просмотреть результаты"
+      remove: "Удалить опрос"
+    new:
+      title: "Название"
+      description: "Описание"
+      tags: "Теги"
+      proceed: "Продолжить"
+    add_questions:
+      title: "Вопросы"
+      create: "Создать опрос!"
+      questions:
+        add: "Добавить вопрос"
+    question_fields:
+      questions:
+        title: "Вопрос"
+        many_answers: "Несколько ответов"
+        remove: "Удалить вопрос"
+      answers: 
+        title: "Ответы"
+        add: "Добавить ответ"
+        remove: "Удалить ответ"
+    show:
+      proceed: "Продолжить"
+      questions:
+        one: "%{count} вопрос"
+        few: "%{count} вопроса"
+        many: "%{count} вопросов"

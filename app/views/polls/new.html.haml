@@ -1,12 +1,12 @@
 = form_for poll do |f|
   .input.string
-    = f.label :title, "Title"
+    = f.label :title, t(".title")
     = f.text_field :title
   .input.string
-    = f.label :description, "Description"
+    = f.label :description, t(".description")
     = f.text_area :description, :rows => 5
   .input.string
-    = f.label :tag_list, "Tags"
+    = f.label :tag_list, t(".tags")
     = f.text_field :tag_list
   = f.hidden_field :user_id, :value => current_user.try(:id)
-  = f.submit "Proceed"
+  = f.submit t(".proceed")

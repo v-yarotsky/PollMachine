@@ -2,5 +2,5 @@
   %h1= poll.title
   - if poll.description?
     %p.description= poll.description
-  %h3= pluralize(poll.questions.size, "question")
-  = link_to "Proceed", new_poll_answers_path(poll), :class => "button proceed", :id => "proceed_to_questions"
+  %h3= t(".questions", :count => poll.questions.size)
+  = link_to t(".proceed"), new_poll_answers_path(poll), :class => "button proceed", :id => "proceed_to_questions"

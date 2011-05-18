@@ -1,20 +1,20 @@
 %li[f.object]
   .question_fields
     %p
-      = f.label :text, "Question"
+      = f.label :text, t(".questions.title")
       = f.text_area :text, :rows => 1
       %span.errors= f.object.errors[:text]
     %p
-      = f.label :multiple_answers, "Many answers"
+      = f.label :multiple_answers, t(".questions.many_answers")
       = f.check_box :multiple_answers
     = f.hidden_field :position, :class => "position", "data-movable" => "question"
   = link_to_move_up
   = link_to_move_down
-  = f.link_to_remove "Remove question"
+  = f.link_to_remove t(".questions.remove")
   %ol.predefined_answers
     %h3
-      = "Answers"
+      = t(".answers.title")
       %span.errors= f.object.errors[:predefined_answers]
     = f.fields_for :predefined_answers
-    = f.link_to_add "Add answer", :predefined_answers
+    = f.link_to_add t(".answers.add"), :predefined_answers
   

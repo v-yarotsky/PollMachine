@@ -1,17 +1,20 @@
-%h1 Polls
+%h1= t(".title")
 = form_tag tag_polls_path, :method => :get do
   = search_field_tag :id
-  = submit_tag :search
+  = submit_tag t(".search")
 
 - polls.each do |poll|
   .div[poll]
     %h3= poll.title
     %p= poll.description.truncate(100)
-    = link_to "Take part", poll_path(poll.id)
+    = link_to t(".take_part"), poll_path(poll.id)
     - if poll.owned_by?(current_user)
-      = link_to "View results", results_poll_path(poll.id)
-      = link_to "Remove", poll_path(poll.id), :method => :delete
+      = link_to t(".view_results"), results_poll_path(poll.id)
+      = link_to t(".remove"), poll_path(poll.id), :method => :delete
 .tags_cloud
   - tag_cloud(tags, %w(css1 css2 css3 css4)) do |tag, css_class|
     = link_to tag.name, tag_polls_path(tag.name), :class => css_class
-= link_to "Create a poll", new_poll_path
+    
+- if controller.action_name == "tag"
+  = link_to t(".back_to_polls_list"), polls_path
+= link_to t(".create"), new_poll_path

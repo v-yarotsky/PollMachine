@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+source 'http://gemcutter.org'
 
 gem 'rails', '3.0.4'
 gem 'mysql2'
@@ -10,6 +11,7 @@ gem 'uuidtools'
 gem 'devise'
 gem 'nested_form'
 gem 'acts-as-taggable-on'
+gem 'russian'
 
 group :test do
   gem 'rspec-rails'
