@@ -10,19 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110515084246) do
+ActiveRecord::Schema.define(:version => 20110518201937) do
 
   create_table "answers", :force => true do |t|
     t.string   "uuid",                 :limit => 36
     t.integer  "question_id"
     t.integer  "predefined_answer_id"
-    t.text     "custom_answer_text"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   add_index "answers", ["predefined_answer_id"], :name => "index_answers_on_predefined_answer_id"
   add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
+  add_index "answers", ["uuid", "predefined_answer_id"], :name => "index_answers_on_uuid_and_predefined_answer_id", :unique => true
   add_index "answers", ["uuid"], :name => "index_answers_on_uuid"
 
   create_table "polls", :force => true do |t|

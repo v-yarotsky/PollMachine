@@ -31,11 +31,14 @@ class PollsController < ApplicationController
   end
   
   def update
-    if poll.update_attributes(params[:poll])
+    begin
+      Answer.transaction do
+        Answer.create!(params[:answers].reject { |a| a[:predefined_answer_id].blank? })
+      end
       redirect_to polls_path, :notice => "Thank you"
-    else
+    rescue
       flash[:alert] = "Submitted data is incorrect"
-      render :action => :add_questions
+      redirect_to root_path
     end
   end
   
