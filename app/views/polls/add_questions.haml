@@ -1,11 +1,13 @@
 - content_for :javascripts do
   = javascript_include_tag "create_poll"
-  
-= nested_form_for poll, :html => { :id => "poll_questions" } do |f|
-  %h2
-    = t(".title")
-    %span.errors= f.object.errors[:questions]
-  %ol.questions
-    = f.fields_for :questions
-    = f.link_to_add t(".questions.add"), :questions
-  = f.submit t(".create")
+
+%section#add_questions  
+  = nested_form_for poll, :html => { :id => "poll_questions" } do |f|
+    %h2.title
+      = t(".title")
+      %span.errors= f.object.errors[:questions]
+    %ol.questions
+      = f.fields_for :questions
+      = f.link_to_add t(".questions.add"), :questions 
+    .input.submit
+      = f.submit t(".create")

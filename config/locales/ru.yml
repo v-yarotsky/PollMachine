@@ -7,10 +7,13 @@ ru:
       take_part: "Принять участие"
       view_results: "Просмотреть результаты"
       remove: "Удалить опрос"
+      tags: "Теги"
+      back_to_polls_list: "Назад к полному списку"
     new:
       title: "Название"
       description: "Описание"
       tags: "Теги"
+      tags_hint: "перечислите теги через запятую"
       proceed: "Продолжить"
     add_questions:
       title: "Вопросы"

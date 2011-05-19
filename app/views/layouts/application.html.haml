@@ -1,23 +1,41 @@
 !!!
 %html
-  %head>
+  %head
+    %meta{ "http-equiv" => "content-type", "content" => "text/html; charset=utf-8" }
+    %meta{ "name" => "keywords", "content" => "" }
+    %meta{ "name" => "keywords", "content" => "" }
+    %meta{ "name" => "description", "content" => "" }
     %title Poll Machine
-    = stylesheet_link_tag :all, "general"
+    = stylesheet_link_tag :all, "default", "general"
     = yield :stylesheets
     = javascript_include_tag :defaults, "nested_form"
     = yield :javascripts
     = csrf_meta_tag
   %body
-    #user_nav
-      - if user_signed_in?
-        = "Hello, #{current_user.name}. Not you?"  
-        = link_to "Sign out", destroy_user_session_path
-      - else
-        = link_to "Sign up", new_user_registration_path 
-        or  
-        = link_to "Sign in", new_user_session_path  
-    #messages
-      #notice= notice
-      #alert= alert
-    = yield
-
+    #wrapper
+      #header
+        %h1= link_to "Poll Machine", root_url
+        %h2
+          %span Minimalistic survey system
+        = yield :header
+        #user_nav
+          - if user_signed_in?
+            = "Hello, #{current_user.name}. Not you?"  
+            = link_to "Sign out", destroy_user_session_path
+          - else
+            = link_to "Sign up", new_user_registration_path 
+            or  
+            = link_to "Sign in", new_user_session_path
+      #page
+        #messages
+          #notice= notice
+          #alert= alert
+        #content
+          = yield
+        #sidebar
+          - if content_for? :sidebar
+            %ul
+              %li= yield :sidebar
+    #footer
+      %p#legal &copy;2011 Vladimir Yarotsky.
+      %p#links

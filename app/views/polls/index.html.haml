@@ -1,20 +1,29 @@
-%h1= t(".title")
-= form_tag tag_polls_path, :method => :get do
-  = search_field_tag :id
-  = submit_tag t(".search")
-
-- polls.each do |poll|
-  .div[poll]
-    %h3= poll.title
-    %p= poll.description.truncate(100)
-    = link_to t(".take_part"), poll_path(poll.id)
-    - if poll.owned_by?(current_user)
-      = link_to t(".view_results"), results_poll_path(poll.id)
-      = link_to t(".remove"), poll_path(poll.id), :method => :delete
-.tags_cloud
-  - tag_cloud(tags, %w(css1 css2 css3 css4)) do |tag, css_class|
-    = link_to tag.name, tag_polls_path(tag.name), :class => css_class
+- content_for :header do
+  = form_tag tag_polls_path, :method => :get, :id => "search" do
+    = search_field_tag :id
+    = submit_tag t(".search")
     
-- if controller.action_name == "tag"
-  = link_to t(".back_to_polls_list"), polls_path
-= link_to t(".create"), new_poll_path
+%section#polls
+  %h2.title= t(".title")
+  - polls.each do |poll|
+    .div[poll]
+      %span.poll_description
+        %h3= poll.title
+        %p= poll.description.truncate(100)
+      %span.poll_actions
+        = button_link t(".take_part"), poll_path(poll.id), "take_part"
+        - if poll.owned_by?(current_user)
+          = button_link t(".view_results"), results_poll_path(poll.id), "results"
+          = button_link t(".remove"), poll_path(poll.id), "remove", :method => :delete
+      .clear
+  - if controller.action_name == "tag"
+    = link_to t(".back_to_polls_list"), polls_path
+  = link_to t(".create"), new_poll_path
+  
+- content_for :sidebar do
+  %h2= t(".tags")
+  %ul
+    %li.tags_cloud
+      - tag_cloud(tags, %w(css1 css2 css3 css4)) do |tag, css_class|
+        = link_to tag.name, tag_polls_path(tag.name), :class => css_class
+
