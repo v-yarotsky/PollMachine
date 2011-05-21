@@ -108,7 +108,7 @@ img {
     visibility: hidden;
     height: 0; }
 
-#content {
+#content.with_sidebar {
   float: right;
   width: 650px; }
 

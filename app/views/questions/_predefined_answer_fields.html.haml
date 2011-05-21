@@ -1,0 +1,10 @@
+%li[f.object]
+  .predefined_answer_wrapper
+    .predefined_answer_fields
+      = text_area_with_errors f, :text, :rows => 1
+      = f.hidden_field :position, :class => "position"
+    .predefined_answer_actions
+      = link_to_move_up :small => true
+      = link_to_move_down :small => true
+      = link_to_remove f, t(".answers.remove"), :small => true
+    .clear

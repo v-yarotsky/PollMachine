@@ -1,7 +1,7 @@
 = form_for poll do |f|
   .input.string
     = f.label :title, t(".title")
-    = f.text_field :title
+    = text_field_with_errors f, :title
   .input.string
     = f.label :description, t(".description")
     = f.text_area :description, :rows => 5

@@ -1,0 +1,23 @@
+%li[f.object]
+  %span.question_li_wrapper
+    .question_wrapper
+      .question_fields
+        .required
+          = f.label :text, t(".questions.title")
+          = f.text_area :text, :rows => 3
+          %span.errors= f.object.errors[:text]
+        .optional
+          = f.label :multiple_answers, t(".questions.many_answers")
+          = f.check_box :multiple_answers
+        = f.hidden_field :position, :class => "position", "data-movable" => "question"
+      .question_actions
+        = link_to_move_up
+        = link_to_move_down
+        = link_to_remove f, t(".questions.remove")
+      .clear
+    %ol.predefined_answers
+      %h3
+        = t(".answers.title")
+        %span.errors= f.object.errors[:predefined_answers]
+      = f.fields_for :predefined_answers
+      = f.link_to_add t(".answers.add"), :predefined_answers

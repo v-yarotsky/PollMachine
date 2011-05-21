@@ -11,7 +11,7 @@ class PollsController < ApplicationController
   def create
     @poll = Poll.new(params[:poll])
     if poll.save
-      redirect_to add_questions_poll_path(poll)
+      redirect_to new_poll_questions_path(poll)
     else
       flash[:alert] = "Invalid data supplied"
       render :action => :new
@@ -31,10 +31,6 @@ class PollsController < ApplicationController
   end
   
   def show
-  end
-  
-  def add_questions
-    poll.questions.build if poll.questions.blank?
   end
   
   def destroy

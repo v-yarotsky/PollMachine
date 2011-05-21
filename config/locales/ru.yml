@@ -15,7 +15,14 @@ ru:
       tags: "Теги"
       tags_hint: "перечислите теги через запятую"
       proceed: "Продолжить"
-    add_questions:
+    show:
+      proceed: "Продолжить"
+      questions:
+        one: "%{count} вопрос"
+        few: "%{count} вопроса"
+        many: "%{count} вопросов"
+  questions:
+    new:
       title: "Вопросы"
       create: "Создать опрос!"
       questions:
@@ -29,9 +36,3 @@ ru:
         title: "Ответы"
         add: "Добавить ответ"
         remove: "Удалить ответ"
-    show:
-      proceed: "Продолжить"
-      questions:
-        one: "%{count} вопрос"
-        few: "%{count} вопроса"
-        many: "%{count} вопросов"

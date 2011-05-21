@@ -5,7 +5,6 @@ gem 'rails', '3.0.4'
 gem 'mysql2'
 gem 'haml'
 gem 'jquery-rails'
-gem 'simple_form'
 gem "haml-rails"
 gem 'uuidtools'
 gem 'devise'

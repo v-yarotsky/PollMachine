@@ -1,0 +1,13 @@
+- content_for :javascripts do
+  = javascript_include_tag "create_poll"
+
+%section#add_questions  
+  = nested_form_for poll, :url => poll_questions_path(poll), :html => { :id => "poll_questions", :method => :put } do |f|
+    %h2.title
+      = t(".title")
+      = error_span f, :questions
+    %ol.questions
+      = f.fields_for :questions
+      = f.link_to_add t(".questions.add"), :questions 
+    .input.submit
+      = f.submit t(".create")

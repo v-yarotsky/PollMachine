@@ -11,6 +11,12 @@
   height: 48px
   background-repeat: no-repeat
   border: none
+  outline: none
+  
+@mixin list_fix
+  display: inline-block
+  line-height: normal
+  vertical-align: top
   
 #messages
   width: 60%
@@ -41,21 +47,12 @@ form
     &.collection_radio, &.collection_check_boxes
       float: none
       clear: none
-  .remove_nested_fields, .add_nested_fields
-    vertical-align: top
   .collection_check_boxes input[type='checkbox']
     margin-right: 4px
-  span.errors:not(:empty)
-    color: red
-    font-size: 1em
-    font-weight: normal
   .field_with_errors
     display: inline
     input, textarea
       border: 1px solid red
-  .remove_nested_fields
-    @include button_link
-    background-image: url('/images/remove.png')
   .input
     margin-bottom: 1em
     input:not([type='submit'])
@@ -67,18 +64,22 @@ form
       color: #939393
   .input.submit
     margin: 3em auto 2em
-  .question
-    border: 1px solid gray
-    @include rounded
-    padding: 10px
-    .predefined_answers
-      padding-top: 10px
-      border-style: solid
-      border-color: gray
-      border-width: 1px 0
+  .errors
+    margin-left: 10px
+    color: #C80300
+    vertical-align: top
 
 .button
   @include button_link
+  &.small
+    width: 16px
+    height: 16px
+    &.move_up
+      background-image: url('/images/move up small.png')
+    &.move_down
+      background-image: url('/images/move down small.png')
+    &.remove
+      background-image: url('/images/remove small.png')
   &.move_up
     background-image: url('/images/move up.png')
   &.move_down
@@ -101,10 +102,6 @@ li.question
   margin-bottom: 20px
   .question_fields
     display: inline-block
-    
-#poll_questions
-  .answer_fields
-    padding-left: 20px
     
 .nav_buttons
   float: left
@@ -138,10 +135,31 @@ li.question
 
 #add_questions
   .question
-    width: 630px
-    .question_wrapper
+    border: 1px solid gray
+    @include rounded
+    padding: 10px
+    .question_li_wrapper
+      @include list_fix
+      white-space: nowrap
+      width: 100%
       .question_fields
         float: left
       .question_actions
-        float: left
-        margin-left: 20px
+        float: right
+    .predefined_answers
+      margin: 10px 20px 0
+      border-style: solid
+      border-color: gray
+      border-width: 1px 0
+      list-style-position: inside
+      .predefined_answer 
+        .predefined_answer_wrapper
+          @include list_fix
+          .predefined_answer_fields
+            float: left
+          .predefined_answer_actions
+            float: left
+
+#new_poll
+  width: 500px
+  margin: 0 auto

@@ -30,7 +30,7 @@
         #messages
           #notice= notice
           #alert= alert
-        #content
+        #content{ :class => content_for?(:sidebar) ? "with_sidebar" : ""}
           = yield
         #sidebar
           - if content_for? :sidebar

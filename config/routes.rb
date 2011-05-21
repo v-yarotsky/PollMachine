@@ -10,9 +10,8 @@ PollMachine::Application.routes.draw do
   
   resources :polls, :except => :edit do
     resource :answers, :only => [:new, :create]
+    resource :questions, :only => [:new, :edit, :update]
     member do
-      get :show_questions
-      get :add_questions
       get :results
     end
     collection do
