@@ -1,6 +1,6 @@
 = content_for :javascripts do
   = javascript_include_tag "questions"
   
-= form_tag poll_answers_path, :html => { :id => "poll" } do |f|
-  = render :partial => 'question', :collection => questions, :as => :question
+= form_tag poll_answers_path(poll), :html => { :id => "poll", :method => :post } do |f|
+  = render :partial => 'question', :collection => questions, :as => :question, :locals => { :f => f }
   = submit_tag "Submit", :id => "poll_submit"

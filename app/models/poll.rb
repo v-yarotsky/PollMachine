@@ -9,6 +9,10 @@ class Poll < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :questions, :on => :update
   
+  scope :with_questions, joins(:questions).group("polls.id").having("COUNT(questions.id) > 0")
+  
+  #default_scope with_questions
+  
   def user_took_part_already?
     #answers.present? && questions.includes(:answers).select(&:answered_by_current_user?).size == questions.size
   end

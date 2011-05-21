@@ -4,9 +4,8 @@
     - question.predefined_answers.each do |predefined_answer|
       %li.answer
         - if question.multiple_answers?
-          = check_box_tag "answers[][predefined_answer_id]", predefined_answer.id
+          = check_box_tag "questions[#{question.id}][answers][][predefined_answer_id]", predefined_answer.id
         - else
-          = radio_button_tag "answers[][predefined_answer_id]", predefined_answer.id
+          = radio_button_tag "questions[#{question.id}][answers][][predefined_answer_id]", predefined_answer.id
         = predefined_answer.text
-        = hidden_field_tag "answers[][question_id]", question.id
           

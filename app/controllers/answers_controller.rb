@@ -9,12 +9,16 @@ class AnswersController < ApplicationController
   def create
     begin
       Answer.transaction do
-        Answer.create!(params[:answers].reject { |a| a[:predefined_answer_id].blank? })
+        params[:questions].each do |question_id, question_attributes|
+          question_attributes[:answers].each do |answer_attributes|
+            Answer.create!({ :question_id => question_id }.merge(answer_attributes))
+          end
+        end 
       end
       redirect_to polls_path, :notice => "Thank you"
-    rescue
-      flash[:alert] = "Submitted data is incorrect"
-      redirect_to root_path
+    rescue => e
+      redirect_to root_path, :alert => "Submitted data is incorrect"
+      #render :text => e.backtrace
     end
   end
   
