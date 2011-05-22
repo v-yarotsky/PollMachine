@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110518214623) do
+ActiveRecord::Schema.define(:version => 20110522161240) do
 
   create_table "answers", :force => true do |t|
     t.string   "uuid",                 :limit => 36
@@ -48,9 +48,8 @@ ActiveRecord::Schema.define(:version => 20110518214623) do
     t.text     "text"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "position",            :default => 0
-    t.boolean  "multiple_answers",    :default => false
-    t.boolean  "allow_custom_answer", :default => false
+    t.integer  "position",         :default => 0
+    t.boolean  "multiple_answers", :default => false
   end
 
   create_table "taggings", :force => true do |t|

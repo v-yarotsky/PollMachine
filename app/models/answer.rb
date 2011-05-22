@@ -7,7 +7,7 @@ class Answer < ActiveRecord::Base
   end
   
   def answered?
-    predefined_answer_id.present? || custom_answer_text.present?
+    predefined_answer_id.present?
   end
   
 end
