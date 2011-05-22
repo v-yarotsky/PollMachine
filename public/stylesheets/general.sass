@@ -102,11 +102,6 @@ li.question
   margin-bottom: 20px
   .question_fields
     display: inline-block
-    
-.nav_buttons
-  float: left
-  clear: both
-  margin-top: 10px
 
 .tags_cloud:not(:empty)
   .css1 
@@ -163,3 +158,69 @@ li.question
 #new_poll
   width: 500px
   margin: 0 auto
+  
+.results_tabular 
+  table
+    font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif
+    font-size: 12px
+    background: #fff
+    width: 480px
+    margin: 10px
+    border-collapse: collapse
+    th
+      font-size: 14px
+      font-weight: normal
+      color: #039
+      padding: 10px 8px
+      border-bottom: 2px solid #6678b1
+      text-align: left
+    td
+      border-bottom: 1px dashed #ccc
+      color: #669
+      padding: 6px 8px
+
+.poll_results
+  .results_tabular
+    float: left
+    width: 500px
+  .question
+    padding: 3px
+    &.selected
+      padding: 2px
+      @include rounded
+      border: 1px dotted gray
+  #graph
+    width: 480px
+    float: left
+    
+.poll_index, .poll_tag
+  .poll
+    height: 80px
+    overflow: hidden
+    &.hovered
+      height: auto
+
+.poll_show
+  .poll_actions
+    margin-top: 20px
+  
+.poll_results
+  .actions
+    margin: 1em 0
+    
+.answer_new
+  .answers
+    margin-top: 2em
+    list-style-position: inside
+  .nav_buttons
+    float: left
+    clear: both
+    margin: 10px 0
+    .button
+      margin-right: 5px
+
+.session_new, .registration_new, .password_new
+  width: 260px
+  margin: 0 auto
+  
+      

@@ -13,16 +13,16 @@ class PollsController < ApplicationController
     if poll.save
       redirect_to new_poll_questions_path(poll)
     else
-      flash[:alert] = "Invalid data supplied"
+      flash[:alert] = "Введенные данные неверны"
       render :action => :new
     end
   end
   
   def update
     if poll.update_attributes(params[:poll])
-      redirect_to root_path, :notice => "Thank you"
+      redirect_to root_path, :notice => "Спасибо"
     else
-      flash[:alert] = "Submitted data incorrect"
+      flash[:alert] = "Введенные данные неверны"
       render :action => :new
     end
   end

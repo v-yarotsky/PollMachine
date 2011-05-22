@@ -1,4 +1,8 @@
 ru:
+  common:
+    welcome_message:
+      signed_in: "Здравствуйте, %{username}. <a href='%{link_to_sign_out}' title='Покинуть учетную запись'>Выйти</a>"
+      not_signed_in: "Здравствуйте, гость. <a href='%{link_to_sign_in}' title='Войти'>Войдите</a> или <a href='%{link_to_sign_up}' title='Зарегистрироваться'>Зарегистрируйтесь</a>."
   polls:
     index:
       title: "Список проводимых опросов"
@@ -21,6 +25,15 @@ ru:
         one: "%{count} вопрос"
         few: "%{count} вопроса"
         many: "%{count} вопросов"
+    results:
+      back_to_polls: "Назад к списку опросов"
+      answer: "Вариант"
+      count: "Количество"
+      percentage: "Процент"
+      total_answers: 
+        one: "Опрошен %{count} респондент."
+        few: "Всего опрошено %{count} респондента."
+        many: "Всего опрошено %{count} респондентов."
   questions:
     new:
       title: "Вопросы"

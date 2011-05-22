@@ -5,6 +5,7 @@ $(function() {
 									"<div class='button next_question'>Next</div>" +
 									"<div class='button finish'>Finish</div>" +
 									"</div>");
+	$(".question .answer:first-child input[type='radio']").click();
 	$question.parent().append($buttons);
 	$(".button").click(handleNavClick);
 	updateNavLinks();
@@ -13,7 +14,7 @@ $(function() {
 
 var handleNavClick = function() {
 	var $button = $(this);
-	var $question = $(".question:visible").hide();;
+	var $question = $(".question:visible").hide();
 	if ($button.is(".next_question")) {
 		$question.next().show();
 	} else if ($button.is(".prev_question")) {

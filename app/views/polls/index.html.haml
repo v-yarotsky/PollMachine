@@ -1,3 +1,6 @@
+- content_for :javascripts do
+  = javascript_include_tag "polls", :cache => true
+
 - content_for :header do
   = form_tag tag_polls_path, :method => :get, :id => "search" do
     = search_field_tag :id
@@ -6,10 +9,10 @@
 %section#polls
   %h2.title= t(".title")
   - polls.each do |poll|
-    .div[poll]
+    %div[poll]
       %span.poll_description
         %h3= poll.title
-        %p= poll.description.truncate(100)
+        %p= poll.description
       %span.poll_actions
         = button_link t(".take_part"), poll_path(poll.id), "take_part"
         - if poll.owned_by?(current_user)

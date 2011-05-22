@@ -15,9 +15,9 @@ class AnswersController < ApplicationController
           end
         end 
       end
-      redirect_to polls_path, :notice => "Thank you"
+      redirect_to polls_path, :notice => "Спасибо"
     rescue => e
-      redirect_to root_path, :alert => "Submitted data is incorrect"
+      redirect_to root_path, :alert => "Введенные данные неверны!"
       #render :text => e.backtrace
     end
   end
@@ -27,7 +27,7 @@ class AnswersController < ApplicationController
   def questions
     @questions ||= poll.questions.with_predefined_answers
   rescue ActiveRecord::RecordNotFound
-    redirect_to root_path, :alert => "Poll was not found"
+    redirect_to root_path, :alert => "Опрос не найден"
     nil
   end
   helper_method :questions

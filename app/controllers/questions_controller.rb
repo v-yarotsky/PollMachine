@@ -9,9 +9,9 @@ class QuestionsController < ApplicationController
   
   def update
     if poll.update_attributes(params[:poll])
-      redirect_to root_path, :notice => "Thank you"
+      redirect_to root_path, :notice => "Спасибо"
     else
-      flash[:alert] = "Submitted data incorrect"
+      flash[:alert] = "Введенные данные неверны"
       render :action => :new
     end
   end

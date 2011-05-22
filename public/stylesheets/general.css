@@ -90,11 +90,6 @@ li.question {
   li.question .question_fields {
     display: inline-block; }
 
-.nav_buttons {
-  float: left;
-  clear: both;
-  margin-top: 10px; }
-
 .tags_cloud:not(:empty) .css1 {
   font-size: 1em; }
 .tags_cloud:not(:empty) .css2 {
@@ -151,4 +146,64 @@ li.question {
 
 #new_poll {
   width: 500px;
+  margin: 0 auto; }
+
+.results_tabular table {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+  font-size: 12px;
+  background: white;
+  width: 480px;
+  margin: 10px;
+  border-collapse: collapse; }
+  .results_tabular table th {
+    font-size: 14px;
+    font-weight: normal;
+    color: #003399;
+    padding: 10px 8px;
+    border-bottom: 2px solid #6678b1;
+    text-align: left; }
+  .results_tabular table td {
+    border-bottom: 1px dashed #cccccc;
+    color: #666699;
+    padding: 6px 8px; }
+
+.poll_results .results_tabular {
+  float: left;
+  width: 500px; }
+.poll_results .question {
+  padding: 3px; }
+  .poll_results .question.selected {
+    padding: 2px;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    border: 1px dotted gray; }
+.poll_results #graph {
+  width: 480px;
+  float: left; }
+
+.poll_index .poll, .poll_tag .poll {
+  height: 80px;
+  overflow: hidden; }
+  .poll_index .poll.hovered, .poll_tag .poll.hovered {
+    height: auto; }
+
+.poll_show .poll_actions {
+  margin-top: 20px; }
+
+.poll_results .actions {
+  margin: 1em 0; }
+
+.answer_new .answers {
+  margin-top: 2em;
+  list-style-position: inside; }
+.answer_new .nav_buttons {
+  float: left;
+  clear: both;
+  margin: 10px 0; }
+  .answer_new .nav_buttons .button {
+    margin-right: 5px; }
+
+.session_new, .registration_new, .password_new {
+  width: 260px;
   margin: 0 auto; }

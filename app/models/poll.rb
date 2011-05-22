@@ -14,7 +14,7 @@ class Poll < ActiveRecord::Base
   #default_scope with_questions
   
   def user_took_part_already?
-    #answers.present? && questions.includes(:answers).select(&:answered_by_current_user?).size == questions.size
+    answers.present? && questions.includes(:answers).select(&:answered_by_current_user?).size == questions.size
   end
   
   def owned_by?(user)

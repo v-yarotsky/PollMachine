@@ -3,4 +3,5 @@
   - if poll.description?
     %p.description= poll.description
   %h3= t(".questions", :count => poll.questions.size)
-  = link_to t(".proceed"), new_poll_answers_path(poll), :class => "button proceed", :id => "proceed_to_questions"
+  .poll_actions
+    = link_to t(".proceed"), new_poll_answers_path(poll), :class => "button proceed", :id => "proceed_to_questions"
