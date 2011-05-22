@@ -20,7 +20,7 @@
         = yield :header
         #user_nav
           - if user_signed_in?
-            = "Hello, #{current_user.name}. Not you?"  
+            = "Hello, #{current_user.name}. "  
             = link_to "Sign out", destroy_user_session_path
           - else
             = link_to "Sign up", new_user_registration_path 

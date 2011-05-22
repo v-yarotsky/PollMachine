@@ -1,8 +1,13 @@
+- content_for :javascripts do
+  = javascript_include_tag "highcharts/highcharts.src", "graphs", :cache => true
+  
 %h1= poll.title
 - if poll.description?
   %p.description= poll.description
 %p
   = "Total answers: " + poll.answers_count.to_s
+#graph{ :style => "width: 800px height: 400px; margin: 0 auto" }
+  
 - poll.questions.each do |question|
   %div[question]
     %h2= question.text
@@ -15,10 +20,10 @@
             %th= "Percent"
           %tbody
             - question.predefined_answers.each do |predefined_answer|
-              %tr
+              %tr.answer
                 %td
-                  %span{ :title => predefined_answer.text }= predefined_answer.text.truncate(25)
-                %td= predefined_answer.times_selected
+                  %span.title{ :title => predefined_answer.text }= predefined_answer.text.truncate(25)
+                %td.count{ "data-count" => predefined_answer.times_selected }= predefined_answer.times_selected
                 %td= number_to_percentage predefined_answer.times_selected_in_percent
     .graph
     
