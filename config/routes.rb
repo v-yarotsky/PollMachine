@@ -1,8 +1,4 @@
 PollMachine::Application.routes.draw do
-  
-  get "answers/new"
-
-  get "answers/create"
 
   devise_for :users
 
